@@ -1,0 +1,304 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}
+Каталог
+{% endblock %}
+{% block content %}
+<section class="mt-2 mb-2">
+    <div class="container text-center">
+      <div class="row pt-2 rowio_doto">
+        {% if query %}
+        {% if products %}
+        <div class="container text-left mb-1">
+          <h3>По запросу {{query}} была найдена продукция</h3>
+        </div>
+        {% for product in products %}
+              <div class="col-md-6 col-lg-4 mb-2 col-mine">
+                <div class="model_item bg-white border border-dark">
+                  <img src="{{ product.photo.url }}" alt="{{ product.name }}" />
+                  <p class="text-reset pt-2">{{ product.name }}</p>
+                  <a href="product/{{product.slug}}" class="btn btn-outline-dark btn_absolute_1">Подробнее</a>
+                  {% if user.is_authenticated %}
+                    <a href="{% url 'basket:basket_add' %}" class="btn btn-outline-dark btn_absolute_2 add-to-cart"
+                       data-product-id="{{ product.product_id }}">В корзину</a>
+                    {% csrf_token %}
+                    {% else %}
+                    <a href="{% url 'user:login' %}?message=1" class="btn btn-outline-dark btn_absolute_2">В корзину</a>
+                    {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+            {% else %}
+            <div class="container text-left mb-1">
+              <h3>По запросу "{{query}}" ничего не было найдено</h3>
+            </div>
+            {% endif %}
+        {% elif first %}
+        <div class="container text-left">
+          <h3>{{choose.name}}</h3>
+          <p>Средства связи для гражданской авиации предназначены для обеспечения оперативной и надежной связи между наземным персоналом и воздушными судами, а также координации управления воздушным движением.
+            <br>Система навигации с использованием глобальной системы позиционирования (GPS) применяется для определения местоположения воздушных судов в пространстве с высокой точностью, что позволяет оптимизировать маршруты следования и повысить безопасность полетов.
+            
+            <br>Технологии радиолокационного наблюдения обеспечивают своевременное обнаружение и сопровождение воздушных судов, позволяя диспетчерам контролировать воздушную обстановку в режиме реального времени.
+          </p>
+        </div>
+        {% if products %}
+            {% for product in products %}
+              <div class="col-md-6 col-lg-4 mb-2 col-mine">
+                <div class="model_item bg-white border border-dark">
+                  <img src="{{ product.photo.url }}" alt="{{ product.name }}" />
+                  <p class="text-reset pt-2">{{ product.name }}</p>
+                  <a href="product/{{product.slug}}" class="btn btn-outline-dark btn_absolute_1">Подробнее</a>
+                  {% if user.is_authenticated %}
+                  <a href="{% url 'basket:basket_add' %}" class="btn btn-outline-dark btn_absolute_2 add-to-cart"
+                    data-product-id="{{ product.product_id }}">В корзину</a>
+                  {% csrf_token %}
+                  {% else %}
+                  <a href="{% url 'user:login' %}?message=1" class="btn btn-outline-dark btn_absolute_2">В корзину</a>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <h2>Данная продукция отсутствует</h2>
+          {% endif %}
+        {% elif second %}
+        <div class="container text-left">
+          <h3>{{choose.name}}</h3>
+          <p>ОАО «Владимирский завод «Электроприбор» проектирует и изготавливает антенно-мачтовые устройства различных конструкций  и высот. Мачтовые устройства служат для подъема антенных устройств. Антенно-мачтовые устройства могут быть установлены на земле, а также могут крепиться к шасси автомобиля и к кузову.</p>
+
+          <h5>Природно-климатические условия эксплуатации мачтовых устройств по устойчивости к воздействиям окружающей среды:</h5><br>
+          <ul>
+          <li>диапазон рабочих температур от минус 50 °С; до плюс 50 °С,</li>
+          <li>относительная влажность воздуха – до 98%,</li>
+          <li>ветровая нагрузка – скорость ветра до 30 м/с</li>
+          </ul>
+        </div>
+        {% if products %}
+            {% for product in products %}
+              <div class="col-md-6 col-lg-4 mb-2 col-mine">
+                <div class="model_item bg-white border border-dark">
+                  <img src="{{ product.photo.url }}" alt="{{ product.name }}" />
+                  <p class="text-reset pt-2">{{ product.name }}</p>
+                  <a href="product/{{product.slug}}" class="btn btn-outline-dark btn_absolute_1">Подробнее</a>
+                  {% if user.is_authenticated %}
+                  <a href="{% url 'basket:basket_add' %}" class="btn btn-outline-dark btn_absolute_2 add-to-cart"
+                     data-product-id="{{ product.product_id }}">В корзину</a>
+                  {% csrf_token %}
+                  {% else %}
+                  <a href="{% url 'user:login' %}?message=1" class="btn btn-outline-dark btn_absolute_2">В корзину</a>
+                  {% endif %}
+              </div>
+            {% endfor %}
+          {% else %}
+            <h2>Данная продукция отсутствует</h2>
+          {% endif %}
+        {% elif third %}
+        <div class="container text-left">
+          <h3>{{choose.name}}</h3>
+<p>ОАО «Владимирский завод «Электроприбор» проектирует и изготавливает опоры антенные и башни связи.<br> Собственное производство опор и башен связи оснащено современным металлообрабатывающим оборудованием, позволяющим производить дробеструйную обработку металлопроката, рубку и поперечный распил, плазменную резку и сварку на полуавтоматах в среде СО2, обработку уголкового металлопроката с пробивкой отверстий, пробивку отверстий в листовом прокате, грунтовку и окраску металлоконструкций с последующей сушкой в сушильных камерах.
+          </p>
+        </div>
+        {% if products %}
+            {% for product in products %}
+              <div class="col-md-6 col-lg-4 mb-2 col-mine">
+                <div class="model_item bg-white border border-dark">
+                  <img src="{{ product.photo.url }}" alt="{{ product.name }}" />
+                  <p class="text-reset pt-2">{{ product.name }}</p>
+                  <a href="product/{{product.slug}}" class="btn btn-outline-dark btn_absolute_1">Подробнее</a>
+                  {% if user.is_authenticated %}
+                    <a href="{% url 'basket:basket_add' %}" class="btn btn-outline-dark btn_absolute_2 add-to-cart"
+                       data-product-id="{{ product.product_id }}">В корзину</a>
+                    {% csrf_token %}
+                    {% else %}
+                    <a href="{% url 'user:login' %}?message=1" class="btn btn-outline-dark btn_absolute_2">В корзину</a>
+                    {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <h2>Данная продукция отсутствует</h2>
+          {% endif %}
+        {% elif fourth %}
+        <div class="container text-left">
+          <h3>{{choose.name}}</h3>
+<p>В быстро развивающейся железнодорожной отрасли надежные средства связи имеют решающее значение для обеспечения безопасности, эффективности и своевременной передачи информации. Представляем передовое решение для связи, специально разработанное для удовлетворения уникальных потребностей железнодорожного транспорта.</p>
+          
+        </div>
+        {% if products %}
+            {% for product in products %}
+              <div class="col-md-6 col-lg-4 mb-2 col-mine">
+                <div class="model_item bg-white border border-dark">
+                  <img src="{{ product.photo.url }}" alt="{{ product.name }}" />
+                  <p class="text-reset pt-2">{{ product.name }}</p>
+                  <a href="product/{{product.slug}}" class="btn btn-outline-dark btn_absolute_1">Подробнее</a>
+                  {% if user.is_authenticated %}
+                    <a href="{% url 'basket:basket_add' %}" class="btn btn-outline-dark btn_absolute_2 add-to-cart"
+                       data-product-id="{{ product.product_id }}">В корзину</a>
+                    {% csrf_token %}
+                    {% else %}
+                    <a href="{% url 'user:login' %}?message=1" class="btn btn-outline-dark btn_absolute_2">В корзину</a>
+                    {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <h2>Данная продукция отсутствует</h2>
+          {% endif %}
+        {% elif fifth %}
+        <div class="container text-left">
+          <h3>{{choose.name}}</h3>
+<p>Оборудование применяется для предварительной механической очистки сточных вод.</p>
+<h5>В состав входят:</h5>
+  <ul>
+    <li>Затворы щитовые (ручной и электропривод).</li>
+<li>Решетки предварительной очистки.</li>
+<li>Канализационные механические решетки тонкой очистки.</li>
+<li>Ленточные транспортеры для удаления извлеченных отходов.</li>
+<li>Элеватор шнековый.</li>
+<li>Бункер-накопитель для сбора отбросов.</li>
+  </ul>
+  <h5>Затворы щитовые (ручные или электропривод)</h5>
+  <p>Изготавливаются под заказ. Для определения необходимых условий изготовления на сайте предприятия размещен <a href="https://electropribor.ru/catalog/Oborudovanie_dlya_vodokanalov/Zatvor_shchitovoy/">опросный лист.</a></p>
+  <h5>Механизированные решетки предварительной очистки</h5>
+  <p>Решетки предварительной очистки предназначены для улавливания волокнистых включений, содержащихся в сточной воде.</p>
+  <ul>
+    <li>Ширина,м - 0.5-1.5</li>
+    <li>Глубина,м - 0.5-2.0</li>
+    <li>Ширина прозоров,мм - 15-25</li>
+  </ul>
+  <h5>Элеватор шнековый</h5>
+  <p>Предназначен для уплотнения и транспортировки собранных решеткой отбросов.</p>
+  <ul>
+    <li>Производительность,м3\ч - 6,84</li>
+    <li>Мощность привода,кВт - 2,2</li>
+    <li>Диаметр шнека,мм - 200</li>
+    <li>Давление промывки водой,кг\см2 - 3</li>
+    <li>Обороты привода,об\мин - 25</li>
+    <li>Габариты,мм - 925х1500х600</li>
+  </ul>
+  <h5>Ленточные транспортеры (конвейеры)</h5>
+  <p>Предназначен для сбора и перемещения собранного осадка.</p>
+  <ul>
+    <li>Высота,мм - 800</li>
+    <li>Ширина ленты,мм – 500-800</li>
+    <li>Скорость ленты,м\сек – 0,66</li>
+    <li>Привод,кВт - 1,5</li>
+    <li>Длина - по заданию заказчика.</li>
+  </ul>
+  <h5>Механизированный бункер</h5>
+  <p>Предназначен для сбора, обезвоживания и накопления извлеченных отходов из сточных вод.</p>
+  <ul>
+    <li>Объем,м3 – 4,3</li>
+    <li>Привод,кВт – 3</li>
+  </ul>
+  <p>ОАО «Владимирский завод «Электроприбор» также изготовит и поставит мешалки, контейнеры, тележки, другое нестандартное оборудование, в том числе из нержавеющей стали.</p>
+</div>
+        {% if products %}
+            {% for product in products %}
+              <div class="col-md-6 col-lg-4 mb-2 col-mine">
+                <div class="model_item bg-white border border-dark">
+                  <img src="{{ product.photo.url }}" alt="{{ product.name }}" />
+                  <p class="text-reset pt-2">{{ product.name }}</p>
+                  <a href="product/{{product.slug}}" class="btn btn-outline-dark btn_absolute_1">Подробнее</a>
+                  {% if user.is_authenticated %}
+                    <a href="{% url 'basket:basket_add' %}" class="btn btn-outline-dark btn_absolute_2 add-to-cart"
+                       data-product-id="{{ product.product_id }}">В корзину</a>
+                    {% csrf_token %}
+                    {% else %}
+                    <a href="{% url 'user:login' %}?message=1" class="btn btn-outline-dark btn_absolute_2">В корзину</a>
+                    {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <h2>Данная продукция отсутствует</h2>
+          {% endif %}
+        {% elif sixth %}
+        <div class="container text-left">
+          <h3>{{choose.name}}</h3>
+          <h5>ОАО «Владимирский завод «Электроприбор» является разработчиком и производителем комплекса технических средств оповещения населения по радиоканалам и цифровым сетям.</h5>
+
+          <p class="mb-1">Комплекс был разработан по заказу МЧС России для региональных, местных и локальных системах оповещения населения с использованием радиоканалов (КТСО-Р), в последующем был модернизирован и адаптирован для работы по цифровым сетям (КТСО-РЦ).<p>
+          
+          <p>КТСО-РЦ предназначен для управления оконечными средствами оповещения региональных, местных, локальных и объектовых автоматизированных систем оповещения гражданской обороны с целью доведения до населения, оперативных дежурных служб и руководства региональных центров и муниципальных образований, а также производственных объектов формализованных сигналов оповещения, текстовых и речевых сообщений и запуска электросирен.
+          </p>
+          <h5>КТСО-РЦ обеспечивает доведение сигналов и информации оповещения по радиоканалам и цифровым сетям, в том числе:</h5>
+          <ul>
+          <li>формирование, передачу и прием формализованных сигналов оповещения и речевых сообщений;</li>
+          <li>управление электросиренами (типа С-40);</li>
+          <li>управление выносными акустическими устройствами П-166ВАУ (разной мощности) и передачу через них звука сирены и речевых сообщений;</li>
+          <li>переключение  (включение)  усилителей теле- и  радиотрансляционных узлов  на передачу сигналов оповещения и речевых сообщений, а для телевизионных усилителей - формирование статической видеозаставки;</li>
+          <li>автоматизированное оповещение должностных лиц по телефонным каналам, в том числе и сотовым; передачу SMS сообщений абонентам сотовых сетей;</li>
+          <li>переключение имеющихся систем громкоговорящей связи  предприятий (ГГС) на трансляцию сигналов оповещения;</li>
+          <li>возможность управления КТСО-Р с проводного и выносных пультов управления (в том числе по радиоканалу) с возможностью установки системы приоритетов, а также от аппаратуры П-160; П-164, П-166, П-166М.</li>
+          <li>формирование, передачу и прием подтверждений о принятых сигналах;</li>
+          <li>передачу сигналов и информации оповещения в избирательном, групповом и циркулярном режимах.</li>
+          </ul>
+        </div>
+          {% if products %}
+            {% for product in products %}
+              <div class="col-md-6 col-lg-4 mb-2 col-mine">
+                <div class="model_item bg-white border border-dark">
+                  <img src="{{ product.photo.url }}" alt="{{ product.name }}" />
+                  <p class="text-reset pt-2">{{ product.name }}</p>
+                  <a href="product/{{product.slug}}" class="btn btn-outline-dark btn_absolute_1">Подробнее</a>
+                  {% if user.is_authenticated %}
+                    <a href="{% url 'basket:basket_add' %}" class="btn btn-outline-dark btn_absolute_2 add-to-cart"
+                       data-product-id="{{ product.product_id }}">В корзину</a>
+                    {% csrf_token %}
+                    {% else %}
+                    <a href="{% url 'user:login' %}?message=1" class="btn btn-outline-dark btn_absolute_2">В корзину</a>
+                    {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <h2>Данная продукция отсутствует</h2>
+          {% endif %}
+        {% else %}
+        <p
+        class="text-uppercase mb-2"
+        style="font-weight: 600; font-size: 20px"
+      >
+        Сегодня ОАО «Владимирский завод «Электроприбор» производит широкий
+        спектр уникальной высокотехнологичной продукции:
+      </p>
+          {% for category in category %}
+          <div class="col-md-6 col-lg-4 mb-2 col-mine">
+          <div class="model_item bg-white border border-dark">
+            <img src="{{ category.icon.url }}" alt="{{ category.name }}" />
+            <p class="text-reset pt-2">{{ category.name }}</p>
+            <a href="?category={{ category.category_id }}" class="btn btn-outline-dark btn_absolute_2">Просмотреть товары</a>
+          </div>
+        </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      {% if products.paginator.count > 2 %}
+        <nav aria-label="Навигация" class="mx-4 text-center align-items-center">
+            <ul class="pagination justify-content-center" style="margin-bottom:0;margin-top:10px;">
+                <li class="page-item">
+                    <a class="page-link" href="?page=1{% for cid in select %}&category={{ cid }}{% endfor %}{% if query %}&q={{ query }}{% endif %}" aria-label="Первая">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% for page in products.paginator.page_range %}
+                            <li class="page-item"><a class="page-link {% if products.number == page %} active {% endif %}" href="?page={{page}}{% for cid in select %}&category={{ cid }}{% endfor %}{% if query %}&q={{ query }}{% endif %}">{{ page }}</a></li>
+                {% endfor %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ products.paginator.num_pages }}{% for cid in select %}&category={{ cid }}{% endfor %}{% if query %}&q={{ query }}{% endif %}" aria-label="Последняя">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    {% endif %}
+    </div>
+  </section>
+  <div class="container">
+
+    <div id="jq-notification" class="alert alert-success col-lg-3 col-md-6 col-sm-9 mt-1" style="display:none;visibility:hidden;"></div>
+  </div>
+  {% endblock %}

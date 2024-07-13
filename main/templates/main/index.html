@@ -1,11 +1,198 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    1234
-</body>
-</html>
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+{% block content %}
+    <section class="mt-3 mb-1">
+      <div class="container text-center">
+        <div class="swiper pb-4">
+          <div class="swiper-wrapper pb-3">
+            {% for new in news %}
+            <div class="swiper-slide">
+
+              <div
+                class="card mx-auto"
+                style="max-width: 250px; max-height: 470px"
+                id="cardd"
+              >
+                <img
+                  class="mx-auto mt-3"
+                  style="width: 75%; max-height: 150px"
+                  src="{{new.photo.url}}"
+                  alt="Card image cap"
+                  loading="lazy"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">{{new.name}}</h5>
+                  <p class="card-text">
+                    {{new.small_description}}
+                  </p>
+                  <div
+                    style="position: absolute; bottom: 15px; left: 0; right: 0"
+                  >
+                    <a href="news/{{new.slug}}" class="btn">Подробнее</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            {% endfor %}
+            
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+    <section class="mt-2 mb-2 bg-light">
+      <div class="container">
+        <div class="row justify-content-between text-center p-2">
+          <div class="dropdown col-lg-4 col-md-6 col-sm-12">
+            <button type="button" class="btn btn-outline-info text-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="{% static "./style/image/factory.png" %}" alt="Производство" style="padding-right:10px" class="img-drop"/>Производство
+            </button>
+            <div class="dropdown-menu" style="margin-top:10px">
+              <ul>
+                <li><a href="#" class="text-dark" >Холодная листовая штамповка</a></li>
+                <li><a href="#" class="text-dark">Термические и сварочные работы</a></li>
+                <li><a href="#" class="text-dark">Сборочно-монтажное производство</a></li>
+                <li><a href="#" class="text-dark">Производство тонкоплёночных микроплат</a></li>
+                <li><a href="#" class="text-dark">Производство печатных плат</a></li>
+                <li><a href="#" class="text-dark">Механообработка</a></li>
+                <li><a href="#" class="text-dark">Литейное производство</a></li>
+                <li><a href="#" class="text-dark">Инструментальное производство</a></li>
+                <li><a href="#" class="text-dark">Гальванические и лакокрасочные покрытия</a></li>
+              </ul>
+              </div>
+          </div>
+          <div class="dropdown col-lg-4 col-md-6 col-sm-12 dropdown_zavod">
+            <button type="button" class="btn btn-outline-info text-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="{% static "./style/image/pred.png" %}" alt="Предприятие" style="padding-right:10px" class="img-drop" />Предприятие
+            </button>
+            <div class="dropdown-menu">
+<ul>
+                  <li><a href="#" class="text-dark">Летопись становления</a></li>
+                  <li><a href="#" class="text-dark">Завод сегодня</a></li>
+                  <li><a href="#" class="text-dark">История создания и развития завода</a></li>
+                  <li><a href="#" class="text-dark">Свидетельства</a></li>
+                  <li><a href="#" class="text-dark">Сертификаты</a></li>
+                  <li><a href="#" class="text-dark">Видео о предприятии и продукции</a></li>
+                  <li><a href="#" class="text-dark">Музей</a></li>
+                  <li><a href="#" class="text-dark">Антикоррупционная политика ОАО "Владимирский завод"Электроприбор"</a></li>
+</ul>
+              </div>
+          </div>
+          <div class="dropdown col-lg-4 col-md-6 col-sm-12 dropdown_zavod">
+            <button type="button" class="btn btn-outline-info text-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="{% static "./style/image/ant.png" %}" alt="Продукция"style="padding-right:10px" class="img-drop" />Продукция
+            </button>
+            <div class="dropdown-menu">
+              <ul>
+                  <li><a href="#" class="text-dark">Эксплуатационная документация</a></li>
+                  <li><a href="#" class="text-dark">Продукция в интересах МЧС РФ</a></li>
+                  <li><a href="#" class="text-dark">Оборудование для водоканалов</a></li>
+                  <li><a href="#" class="text-dark">Средства связи для железнодорожного транспорта</a></li>
+                  <li><a href="#" class="text-dark">Башни и Опоры связи</a></li>
+                  <li><a href="#" class="text-dark">Антенно-мачтовые устройства</a></li>
+                  <li><a href="#" class="text-dark">Средства связи для гражданской авиации</a></li>
+              </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <hr />
+
+    <section class="mt-2 mb-2">
+      <div class="container text-center">
+        <p
+          class="text-uppercase mb-4"
+          style="font-weight: 600; font-size: 20px"
+        >
+          В интересах заказчиков ОАО "Владимирский завод "Электроприбор"
+          занимается
+        </p>
+        <div class="row pt-2">
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
+            <p>
+              <img src="{% static "./style/image/ruler.png" %}" alt="Проекты" />
+            </p>
+            <p class="text-reset">Выполнением проектных работ</p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
+            <p>
+              <img src="{% static "./style/image/chees.png" %}" alt="Монтажные работы" />
+            </p>
+            <p class="text-reset">
+              Выполнением монтажных и пусконаладочных работ
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
+            <p>
+              <img src="{% static "./style/image/edu.png" %}" alt="Обучение"/>
+            </p>
+            <p class="text-reset">Обучением персонала</p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-2">
+            <p>
+              <img src="{% static "./style/image/bash.png" %}" alt="Производство"/>
+            </p>
+            <p class="text-reset">
+              Оказанием услуг производственного характера
+            </p>
+          </div>
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto">
+            <p>
+              <img src="{% static "./style/image/track.png" %}" alt="Доставка" />
+            </p>
+            <p class="text-reset">
+              Доставкой продукции, используя имеющуюся транспортную
+              инфраструктуру предприятия
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr style="margin-bottom: 0" />
+
+    <section class="mt-2 mb-2 bg-light">
+      <div class="container d-flex py-2" id="container-center">
+        <div class="row">
+          <div class="col-md-6 col-lg-6 col-xl-5">
+            <iframe
+              width="400px"
+              height="350px"
+              src="https://www.youtube.com/embed/c5penuBB5O8"
+              title="АППЦ"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              style="margin-left: auto; margin-right: auto"
+              id="video"
+            ></iframe>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-7 mb-2">
+            <p
+              class="text-uppercase mb-4"
+              style="font-weight: 600; font-size: 20px"
+            >
+              ВИДЕО О ПРЕДПРИЯТИИ И ПРОДУКЦИИ
+            </p>
+            <p class="text-reset">
+              Сегодня ОАО «Владимирский завод «Электроприбор» производит широкий
+              спектр уникальной высокотехнологичной продукции. За свою историю
+              ОАО «Владимирский завод «Электроприбор» выпущено более 100
+              наименований техники различного назначения.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

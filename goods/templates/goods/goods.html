@@ -1,0 +1,75 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block title %}
+{{product.name}}
+{% endblock %}
+{% block content %}
+{% comment %} <div class="container" style="overflow-x:auto;">
+    <h1>{{ product.name }}</h1>
+    <table class="table table-striped table-bordered border-primary text-center">
+      <thead>
+        <tr>
+          <th>Обозначение</th>
+          <th>Высота сложенной мачты, м</th>
+          <th>Высота развернутой мачты, м</th>
+          <th>Масса мачты, кг</th>
+          <th>Масса поднимаемого груза, кг</th>
+          <th>Число колен</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for passport in passports %}
+          <tr>
+            <td>{{ passport.designation }}</td>
+            <td>{{ passport.folded_height }}</td>
+            <td>{{ passport.unfolded_height }}</td>
+            <td>{{ passport.mass }}</td>
+            <td>{{ passport.load_min }} - {{ passport.load_max }}</td>
+            <td>{{ passport.sections }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div> {% endcomment %}
+<div class="container">
+  <h2>{{product.name}}</h2>
+  <div class="row">
+    <div class="col-lg-8 col-md-10 col-sm-10">
+      <p>{{product.description}}</p>
+    </div>
+    <div class="col-lg-4 col-md-10 col-sm-12 text-center">
+      <img src="{{product.photo.url}}" alt="{{product.name}}" class="goods_image" style="">
+    </div>
+  </div>
+  {% if product.download_file %}
+  <a href="{% url 'download_file' product.product_id %}" download>Скачать характеристики</a>
+{% else %}
+  <p>Файл недоступен.</p>
+{% endif %}
+<br>
+<hr>
+{% if user.is_authenticated %}
+                    <a href="{% url 'basket:basket_add' %}" class="btn btn-outline-dark add-to-cart"
+                       data-product-id="{{ product.product_id }}">В корзину</a>
+                    {% csrf_token %}
+                    <div class="container">
+                      <div id="jq-notification" class="alert alert-success col-lg-3 col-md-6 col-sm-9 mt-1" style="display:none;visibility:hidden;"></div>
+                    </div>
+                    {% else %}
+                    <a href="{% url 'user:login' %}?message=1" class="btn btn-outline-dark">В корзину</a>
+                    {% endif %}
+                    <div class="container">
+  <div id="jq-notification" class="alert alert-success col-lg-3 col-md-6 col-sm-9 mt-1" style="display:none;visibility:hidden;"></div>
+</div>
+<div class="row text-center">
+  {% for photo in photos %}
+  <div class="col-lg-3 col-md-6 col-sm-12 text-center justify-content-between mx-auto mb-2">
+    <img src="{{photo.photogallery.url}}" alt="{{photo.name}}" class="goods_image">
+    <p>{{photo.name}}</p>
+  </div>
+  {% endfor %}
+</div>
+
+</div>
+{% endblock %}

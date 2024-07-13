@@ -1,0 +1,56 @@
+[
+  {
+    "model": "goods.categories",
+    "pk": 1,
+    "fields": {
+      "name": "Средства связи для гражданской авиации",
+      "slug": "sredstva-svyazi-dlya-grazhdanskoj-aviacii",
+      "icon": "icon_category/center_RPV8WWx.jpg"
+    }
+  },
+  {
+    "model": "goods.categories",
+    "pk": 2,
+    "fields": {
+      "name": "Антенно-мачтовые устройства",
+      "slug": "antenno-machtovye-ustrojstva",
+      "icon": "icon_category/ma4ta.png"
+    }
+  },
+  {
+    "model": "goods.categories",
+    "pk": 3,
+    "fields": {
+      "name": "Башни и Опоры связи",
+      "slug": "bashni-i-opory-svyazi",
+      "icon": "icon_category/vishka.png"
+    }
+  },
+  {
+    "model": "goods.categories",
+    "pk": 4,
+    "fields": {
+      "name": "Средства связи для железнодорожного транспорта",
+      "slug": "sredstva-svyazi-dlya-zheleznodorozhnogo-transporta",
+      "icon": "icon_category/bydka.jpg"
+    }
+  },
+  {
+    "model": "goods.categories",
+    "pk": 5,
+    "fields": {
+      "name": "Оборудование для водоканалов",
+      "slug": "oborudovanie-dlya-vodokanalov",
+      "icon": "icon_category/sqqw.png"
+    }
+  },
+  {
+    "model": "goods.categories",
+    "pk": 6,
+    "fields": {
+      "name": "Продукция в интересах МЧС РФ",
+      "slug": "produkciya-v-interesah-mchs-rf",
+      "icon": "icon_category/бур.jpg"
+    }
+  }
+]

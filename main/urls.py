@@ -11,4 +11,5 @@ urlpatterns = [
     path("search", views.catalog, name="search"),
     path("about", views.about, name="about"),
     path("contact", views.contact, name="contact"),
+    # path("job", views.job, name="job"),
 ]

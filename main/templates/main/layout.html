@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet"  href="{% static '/style/css/index.css' %}"/>
+  </head>
+  <body>
+    {% block header %}
+<nav
+      class="navbar navbar-expand-lg navbar-light bg-light"
+      style="border-bottom: solid #e7e7e7"
+    >
+      <div class="container navbar_out">
+          <a class="navbar-brand" href="{% url 'home' %}"
+            ><svg
+              width="5vw"
+              height="5vw"
+              viewBox="0 0 270 170"
+              class="looka-1j8o68f"
+            >
+              <defs id="SvgjsDefs1020"></defs>
+              <g
+                id="SvgjsG1021"
+                featurekey="rootContainer"
+                transform="matrix(2.3255814259134855,0,0,2.3255814259134855,0,0)"
+                fill="#283149"
+              >
+                <path
+                  xmlns="http://www.w3.org/2000/svg"
+                  d="M116.1 78.7H0V0h116.1zM2 76.7h112.1V2H2z"
+                ></path>
+              </g>
+              <g
+                id="SvgjsG1022"
+                featurekey="monogramFeature-0"
+                transform="matrix(1.4838556461546784,0,0,1.4838556461546784,98.86965562355246,8.353986238912114)"
+                fill="#283149"
+              >
+                <path
+                  d="M48.24 37.44 l-34.62 0 l-0.78 2.88 l22.74 0 l-2.34 8.64 l-22.74 0 l-0.78 2.88 l34.62 0 l-2.34 8.7 l-43.26 0 l8.52 -31.8 l43.32 0 z"
+                ></path>
+              </g>
+              <g
+                id="SvgjsG1023"
+                featurekey="nameFeature-0"
+                transform="matrix(0.5156623305583121,0,0,0.5156623305583121,33.11628556941755,112.12834479048543)"
+                fill="#283149"
+              >
+                <path
+                  d="M20.02 16.934 l-10.469 0 l0 6.4063 l9.2773 0 l0 5.0977 l-9.2773 0 l0 6.3867 l10.469 0 l0 5.1758 l-16.367 0 l0 -28.223 l16.367 0 l0 5.1563 z M37.685528125 34.8242 l8.8477 0 l0 5.1758 l-14.707 0 l0 -28.223 l5.8594 0 l0 23.047 z M73.145 16.934 l-10.469 0 l0 6.4063 l9.2773 0 l0 5.0977 l-9.2773 0 l0 6.3867 l10.469 0 l0 5.1758 l-16.367 0 l0 -28.223 l16.367 0 l0 5.1563 z M97.450828125 40.39063 c-8.3008 0 -14.434 -5.6445 -14.434 -14.512 s6.1328 -14.492 14.434 -14.492 c6.2891 0 11.328 3.2227 13.34 8.5742 l-5.4688 1.9922 c-1.25 -3.2813 -4.2383 -5.1758 -7.8711 -5.1758 c-4.8633 0 -8.5938 3.3984 -8.5938 9.1016 s3.7305 9.1211 8.5938 9.1211 c3.6328 0 6.6211 -1.9141 7.8711 -5.1953 l5.4688 1.9922 c-2.0117 5.3516 -7.0508 8.5938 -13.34 8.5938 z M137.73484375 11.777000000000001 l0 5.1563 l-6.6992 0 l0 23.066 l-5.8008 0 l0 -23.066 l-6.7383 0 l0 -5.1563 l19.238 0 z M162.842109375 40 l-7.3438 -12.422 l-1.6992 0 l0 12.422 l-5.8594 0 l0 -28.223 l10.234 0 c6.3867 0 9.082 3.7695 9.082 8.4375 c0 3.7891 -2.1484 6.25 -5.9766 7.0703 l8.4961 12.715 l-6.9336 0 z M153.798809375 16.641 l0 6.7383 l3.457 0 c3.125 0 4.3945 -1.3281 4.3945 -3.3594 c0 -2.0117 -1.2695 -3.3789 -4.3945 -3.3789 l-3.457 0 z M192.34340625 40.39063 c-8.3008 0 -14.434 -5.6641 -14.434 -14.512 c0 -8.8672 6.1328 -14.492 14.434 -14.492 c8.2813 0 14.414 5.625 14.414 14.492 c0 8.8477 -6.1328 14.512 -14.414 14.512 z M192.34340625 35.0195 c4.8633 0 8.5938 -3.418 8.5938 -9.1406 c0 -5.7031 -3.7305 -9.1016 -8.5938 -9.1016 s-8.5938 3.3984 -8.5938 9.1016 c0 5.7227 3.7305 9.1406 8.5938 9.1406 z M229.658578125 11.777000000000001 c5.5273 0 8.9648 4.1016 8.9648 9.1211 c0 5.1367 -3.4375 8.9844 -8.9648 8.9844 l-5.8789 0 l0 10.117 l-5.8594 0 l0 -28.223 l11.738 0 z M228.681578125 24.98 c2.9297 0 4.2969 -1.6211 4.2969 -4.1602 c0 -2.4414 -1.3672 -4.1406 -4.2969 -4.1406 l-4.9023 0 l0 8.3008 l4.9023 0 z M264.2190625 40 l-7.3438 -12.422 l-1.6992 0 l0 12.422 l-5.8594 0 l0 -28.223 l10.234 0 c6.3867 0 9.082 3.7695 9.082 8.4375 c0 3.7891 -2.1484 6.25 -5.9766 7.0703 l8.4961 12.715 l-6.9336 0 z M255.1757625 16.641 l0 6.7383 l3.457 0 c3.125 0 4.3945 -1.3281 4.3945 -3.3594 c0 -2.0117 -1.2695 -3.3789 -4.3945 -3.3789 l-3.457 0 z M281.220659375 40 l0 -28.223 l5.8594 0 l0 28.223 l-5.8594 0 z M315.293375 25.098 c3.1836 0.87891 5.3125 2.9688 5.3125 6.9922 c0 4.7656 -2.8906 7.9102 -8.8477 7.9102 l-11.621 0 l0 -28.223 l9.1406 0 c6.0938 0 9.2969 2.9297 9.2969 7.7344 c0 2.4805 -1.0742 4.5117 -3.2813 5.5859 z M309.336375 16.641 l-3.5547 0 l0 6.6406 l3.8086 0 c2.5 0 3.5938 -1.4844 3.5938 -3.3984 c0 -1.875 -1.2305 -3.2422 -3.8477 -3.2422 z M310.664375 34.9805 c3.1641 0 4.2578 -1.6992 4.2578 -3.5352 c0 -1.875 -1.0742 -3.6523 -4.375 -3.6523 l-4.7656 0 l0 7.1875 l4.8828 0 z M344.091453125 40.39063 c-8.3008 0 -14.434 -5.6641 -14.434 -14.512 c0 -8.8672 6.1328 -14.492 14.434 -14.492 c8.2813 0 14.414 5.625 14.414 14.492 c0 8.8477 -6.1328 14.512 -14.414 14.512 z M344.091453125 35.0195 c4.8633 0 8.5938 -3.418 8.5938 -9.1406 c0 -5.7031 -3.7305 -9.1016 -8.5938 -9.1016 s-8.5938 3.3984 -8.5938 9.1016 c0 5.7227 3.7305 9.1406 8.5938 9.1406 z M384.570625 40 l-7.3438 -12.422 l-1.6992 0 l0 12.422 l-5.8594 0 l0 -28.223 l10.234 0 c6.3867 0 9.082 3.7695 9.082 8.4375 c0 3.7891 -2.1484 6.25 -5.9766 7.0703 l8.4961 12.715 l-6.9336 0 z M375.527325 16.641 l0 6.7383 l3.457 0 c3.125 0 4.3945 -1.3281 4.3945 -3.3594 c0 -2.0117 -1.2695 -3.3789 -4.3945 -3.3789 l-3.457 0 z"
+                ></path>
+              </g>
+            </svg>
+            <p style="visibility:none;display: none;">Лого компании</p>
+          </a>
+          <a
+            href="{% url 'home' %}"
+            style="text-decoration: none;"
+            class="electro"
+          >
+            <p style="padding-top: 15px; font-weight: 600" id="textio">
+              Электроприбор
+            </p>
+          </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto nav col-lg-12 col-md-12 col-sm-6 justify-content-around">
+              {% url 'catalog' as catalogich %}
+            <li class="nav-item ml-2">
+              <a class="nav-link navbar_textio electro {% if request.path == catalogich %}active_header {% endif %}" href="{{catalogich}}">Продукция</a>
+            </li>
+            {% url 'about' as aboutich %}
+            <li class="nav-item ml-2">
+              <a class="nav-link navbar_textio electro {% if request.path == aboutich %}active_header {% endif %}" href="{{aboutich}}">О заводе</a>
+            </li>
+            {% url 'contact' as contactich %}
+            <li class="nav-item ml-2">
+              <a class="nav-link navbar_textio electro {% if request.path == contactich %}active_header {% endif %}" href="{{contactich}}">Контакты</a>
+            </li>
+          </div>
+        </nav>
+          <header>
+              <div class="px-3 py-2 border-bottom mb-3 header">
+                  <div class="container justify-content-between align-items-center search_container_header">
+                      <form class="col-lg-6 mb-2 mb-lg-0 col-md-6 col-sm-9 justify-content-between d-flex align-items-center" role="search" action="{% url 'search' %}" method="get" style="flex-wrap:wrap">
+                          <div class="col-lg-9 col-md-8 col-sm-10" style="padding-right:10px;">
+                              <input type="search" name="q" class="form-control" placeholder="Поиск продукции" aria-label="Search" style="padding-right:0;" >
+                              </div>
+                          <div class="col-lg-2 col-md-3 col-sm-12 search_form text-center">
+                              <button type="submit" class="btn orange" style="background: rgba(0, 162, 255, 0.2);color:#000;">Найти</button>
+                          </div>
+                      </form>
+          
+                      <div class="col-lg-6 col-md-6 col-sm-6">
+                          <ul class="nav col-lg-12 col-md-12 col-sm-12 mx-auto my-2 my-md-1 search_ul_header" style="padding-right:0px;">
+                              {% if user.is_authenticated %}
+                              <li class="header_effect">
+                                  <a href="{% url 'user:profile' %}" class="nav-link align-items-center text-center text-dark">
+                                      <img src="{% if user.image %}{{ user.image.url }}{% else %}{% static './style/image/anonymous.png' %}{% endif %}" class="d-block mx-auto icon_plus" alt="Аватар пользователя"/>
+                                      {{ user.username }}
+                                  </a>
+                              </li>
+                              <li class="header_effect">
+                                  <a href="{% url 'users:users-basket' %}" class="nav-link text-dark">
+                                      <img src="{% static './style/image/cart_icon.png' %}" class="d-block mx-auto icon_plus" alt="Корзина"/>
+                                      Корзина
+                                  </a>
+                              </li>
+                              {% else %}
+                                  <li class="header_effect">
+                                  <a href="{% url 'user:login' %}" class="nav-link text-dark align-items-center text-center">
+                                      <img src="{% static './style/image/user_icon.png' %}" class="d-block mx-auto icon_plus" alt="Иконка войти"/>
+                                      Войти
+                                  </a>
+                              </li>
+                              {% endif %}
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </header>
+        </div>
+      </div>
+    </nav>
+
+
+
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+    <footer
+      class="text-center text-lg-start bg-light text-muted"
+      style="border-top: solid #e7e7e7"
+    >
+      <div class="container">
+        <section
+          class="d-flex justify-content-lg-between p-4 border-bottom"
+          style="align-items: center"
+        >
+          <div class="me-5 d-lg-block">
+            <span>Наши социальные сети:</span>
+          </div>
+          <div class="social-icons">
+            <a href="https://vk.com" class="social-icon"
+              ><img src="{% static "./style/image/vk.png" %}" alt="Группа ВКонтакте"
+            /></a>
+            <a href="https://web.telegram.org/a/" class="social-icon"
+              ><img src="{% static "./style/image/telegram.png" %}" alt="Телеграм канал"
+            /></a>
+          </div>
+        </section>
+
+        <section class="">
+          <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+              <div class="col-md-3 col-lg-3 mx-auto mb-4 text-center">
+                <h6 class="text-uppercase fw-bold mb-4">
+                  <i class="fas fa-gem me-3"></i>Электроприбор
+                </h6>
+                <p>
+                  С 1955 года завод успешно работает в сфере разработки и
+                  производства средств и систем радиосвязи
+                </p>
+              </div>
+
+              <div class="col-md-4 col-lg-4 mx-auto mb-4 text-center">
+                <h6 class="text-uppercase fw-bold mb-4">Полезные ссылки</h6>
+                <p class="cool_link">
+                  <a href="#!" class="link-dark cool_link" style="font-weight:450;"
+                    >Политика конфиденциальности</a
+                  >
+                </p>
+                <p class="cool_link">
+                  <a href="#!" class="link-dark cool_link" style="font-weight:450;"
+                    >Политика ОАО «Владимирский завод «Электроприбор» в
+                    отношении обработки персональных данных от 20.12.2022 г.</a
+                  >
+                </p>
+                <p class="cool_link">
+                  <a href="#!" class="link-dark cool_link" style="font-weight:450;">Закупщикам</a>
+                </p>
+                <p class="cool_link">
+                  <a href="#!" class="link-dark cool_link" style="font-weight:450;">Помощь</a>
+                </p>
+              </div>
+
+              <div class="col-md-4 col-lg-3 mx-auto mb-md-0 mb-4 text-center">
+                <h6 class="text-uppercase fw-bold mb-4">Контакты</h6>
+                <p>
+                  <i class="fa fa-home me-3"></i> Россия, 600017, г. Владимир,
+                  ул. Батурина, 28
+                </p>
+                <p>
+                  <i class="fa fa-phone me-3"></i> Отдел продаж готовой
+                  продукции, телефон: <br />+7 (4922) 47-80-11 <br />*
+                  добавочный 8774
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </footer>
+    {% endblock %}
+  </body>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="{% static "script/index.js" %}"></script>
+</html>

@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+{{news.name}}
+{% endblock %}
+
+{% block content %}
+<div class="container mb-2">
+    <h3>{{news.name}}</h3>
+    <div class="container">
+        <div class="row justify-content-between" style="    justify-content: center;
+    align-items: center;line-height:30px;font-weight:450">
+            <div class="col-lg-8 col-sm-12 col-md-10 mb-1" style="padding:0;">
+                <p>{{news.description}}</p>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-md-10 text-center" style="padding:0">
+                <img src={{news.include_photo.url}} alt="{{news.name}}" class="news_include_photo border border-info rounded shadow-lg">
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-2">
+        <a href="{% url 'home' %}" class="btn orange" style="background: rgba(0, 162, 255, 0.2);">Вернуться обратно<a>
+    </div>
+</div>
+{% endblock %}

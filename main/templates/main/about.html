@@ -1,0 +1,81 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}
+О заводе
+{% endblock %}
+{% block content %}
+    <section class="mt-2 mb-2">
+      <div class="container text-center">
+        <p
+          class="text-uppercase mb-4"
+          style="font-weight: 600; font-size: 20px"
+        >
+          Наши партнеры
+        </p>
+        <div class="row pt-2">
+          <div class="col-md-3 col-lg-2 mx-auto mb-2">
+            <p>
+              <img
+                src="{% static "./style/image/logo1.png" %}"
+                style="padding-left: auto; padding-right: auto"
+                class="logotip"
+              />
+            </p>
+            <p class="text-reset">
+              ФГУП «Государственная корпорация по организации воздушного
+              движения»
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 mx-auto mb-2">
+            <p>
+              <img
+                src="{% static "./style/image/logo2.jpg" %}"
+                style="padding-left: auto; padding-right: auto"
+                class="logotip"
+              />
+            </p>
+            <p class="text-reset">АО "Концерн ВКО "Алмаз - Антей"</p>
+          </div>
+          <div class="col-md-3 col-lg-2 mx-auto mb-2">
+            <p>
+              <img
+                src="{% static "./style/image/logo3.jpg" %}"
+                style="padding-left: auto; padding-right: auto"
+                class="logotip"
+              />
+            </p>
+            <p class="text-reset">Министерство по чрезвычайным ситуациям</p>
+          </div>
+          <div class="col-md-3 col-lg-2 mx-auto mb-2">
+            <p>
+              <img
+                src="{% static "./style/image/logo4.png" %}"
+                style="padding-left: auto; padding-right: auto"
+                class="logotip"
+              />
+            </p>
+            <p class="text-reset">
+              ОАО "РЖД" и железные дороги стран СНГ и Балтии
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <section>
+      <div class="container text-center">
+        <p
+          class="text-uppercase mb-4"
+          style="font-weight: 400; font-size: 16px"
+        >
+          Предприятие активно ведет исследование мирового рынка и на этой основе
+          разрабатывает новые изделия, регулярно проводит модернизацию
+          выпускаемой продукции.<br />
+          За свою историю ОАО «Владимирский завод «Электроприбор» выпущено более
+          100 наименований техники различного назначения.
+        </p>
+      </div>
+    </section>
+    {% endblock %}
