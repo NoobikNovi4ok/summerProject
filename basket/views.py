@@ -9,7 +9,6 @@ from basket.utils import get_user_basket
 
 def basket_add(request):
     product_id = request.POST.get("product_id")
-    print(product_id)
     product = Products.objects.get(product_id=product_id)
 
     baskets = Basket.objects.filter(user=request.user, product=product)

@@ -276,19 +276,19 @@
         {% endif %}
       </div>
 
-      {% if products.paginator.count > 2 %}
+      {% if products.paginator.num_pages > 1 %}
         <nav aria-label="Навигация" class="mx-4 text-center align-items-center">
             <ul class="pagination justify-content-center" style="margin-bottom:0;margin-top:10px;">
                 <li class="page-item">
-                    <a class="page-link" href="?page=1{% for cid in select %}&category={{ cid }}{% endfor %}{% if query %}&q={{ query }}{% endif %}" aria-label="Первая">
+                    <a class="page-link" href="?page=1&category={{ choose_id }}{% if query %}&q={{ query }}{% endif %}" aria-label="Первая">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
                 {% for page in products.paginator.page_range %}
-                            <li class="page-item"><a class="page-link {% if products.number == page %} active {% endif %}" href="?page={{page}}{% for cid in select %}&category={{ cid }}{% endfor %}{% if query %}&q={{ query }}{% endif %}">{{ page }}</a></li>
+                            <li class="page-item"><a class="page-link {% if products.number == page %} active {% endif %}" href="?page={{page}}&category={{ choose_id }}{% if query %}&q={{ query }}{% endif %}">{{ page }}</a></li>
                 {% endfor %}
                 <li class="page-item">
-                    <a class="page-link" href="?page={{ products.paginator.num_pages }}{% for cid in select %}&category={{ cid }}{% endfor %}{% if query %}&q={{ query }}{% endif %}" aria-label="Последняя">
+                    <a class="page-link" href="?page={{ products.paginator.num_pages }}&category={{ choose_id }}{% if query %}&q={{ query }}{% endif %}" aria-label="Последняя">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

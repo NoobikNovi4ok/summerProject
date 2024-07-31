@@ -15,22 +15,28 @@ def index(request):
 
 def catalog(request):
     categories = Categories.objects.all()
-    products = Products.objects.all()
+    products = None
     category_id = request.GET.get("category", 0)
     page = request.GET.get("page", 1)
     query = request.GET.get("q", None)
     if query:
         products = q_search(query)
-
     if category_id:
         category_id = int(category_id)
         category = Categories.objects.get(pk=category_id)
         products = Products.objects.filter(category=category_id)
 
-    paginator = Paginator(products, 3)
-    current_page = paginator.page(page)
+    if products is not None:
+        paginator = Paginator(products, 1)
+        current_page = paginator.page(page)
 
-    if category_id:
+    if query:
+        context = {
+            "category": categories,
+            "products": current_page,
+            "query": query,
+        }
+    elif category_id:
         if category_id == 1:
             context = {
                 "category": categories,
@@ -38,6 +44,7 @@ def catalog(request):
                 "first": category_id,
                 "query": query,
                 "choose": category,
+                "choose_id": category.category_id,
             }
         elif category_id == 2:
             context = {
@@ -46,6 +53,7 @@ def catalog(request):
                 "second": category_id,
                 "query": query,
                 "choose": category,
+                "choose_id": category.category_id,
             }
         elif category_id == 3:
             context = {
@@ -54,6 +62,7 @@ def catalog(request):
                 "third": category_id,
                 "query": query,
                 "choose": category,
+                "choose_id": category.category_id,
             }
         elif category_id == 4:
             context = {
@@ -62,6 +71,7 @@ def catalog(request):
                 "fourth": category_id,
                 "query": query,
                 "choose": category,
+                "choose_id": category.category_id,
             }
         elif category_id == 5:
             context = {
@@ -70,6 +80,7 @@ def catalog(request):
                 "fifth": category_id,
                 "query": query,
                 "choose": category,
+                "choose_id": category.category_id,
             }
         elif category_id == 6:
             context = {
@@ -78,11 +89,11 @@ def catalog(request):
                 "sixth": category_id,
                 "query": query,
                 "choose": category,
+                "choose_id": category.category_id,
             }
     else:
         context = {
             "category": categories,
-            "products": current_page,
             "query": query,
         }
 
